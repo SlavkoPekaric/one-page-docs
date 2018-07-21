@@ -1,0 +1,13 @@
+{
+  "name": "one-page-docs",
+  "version": "0.1.0",
+  "author": "slavkopekaric@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "async": "^2.6.1",
+    "cheerio": "^1.0.0-rc.2",
+    "lodash": "^4.17.10",
+    "open": "^0.0.5",
+    "request": "^2.87.0"
+  }
+}
