@@ -10,8 +10,12 @@ This project is under development and will be made into a globally installable N
 
 React JS
 
-    $ node reactjs.js
+    $ node reactjs
 
 Vue JS
 
-    $ node vuejs.js
+    $ node vuejs
+
+Solidity
+
+    $ node solidity
