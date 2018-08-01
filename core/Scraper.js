@@ -17,6 +17,7 @@ class Scraper {
 	constructor(settings) {
 		this.title = settings.title
 		this.baseUrl = settings.baseUrl
+		this.includeBasePage = settings.includeBasePage
 		this.basePage = settings.basePage
 		this.contentSelector = settings.contentSelector
 		this.addonCss = settings.addonCss
@@ -77,6 +78,10 @@ class Scraper {
 		
 		return new Promise((resolve, reject) => {
 			let links = []
+
+			if (this.includeBasePage === true) {
+				links.push(this.basePage)
+			}
 			
 			this.scraper(this.baseUrl+this.basePage).then($ => {
 				this.linkIteratorFn($, links)
