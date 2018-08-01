@@ -42,7 +42,7 @@ class Scraper {
 		]
 
 		this.relSrcRegex = [
-			/(<img.*?src=")(\/.*?)(")/g,
+			/(<img.*?src=")((?!http|https).*?)(")/g,
 			/(<img.+srcset=")(\/{1}[a-zA-Z]{1}.*)(,\s)/g,
 			/(<img.+srcset=".+(?:,\s)|\n)(\/{1}[a-zA-Z]{1}.*)(">)/g,
 			/(<a.*?href=")(\/.*?)(")/g,
