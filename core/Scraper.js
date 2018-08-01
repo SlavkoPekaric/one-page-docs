@@ -33,9 +33,6 @@ class Scraper {
 		this.cssLookupRegex = /(<link.*?href=".*?\.css".*>)/g
 		this.jsLookupRegex = /(<script.*?src=".*?\.js".*<\/script>)/g
 		
-		this.cssRelLinkRegex = /(<link.*?href=")(\/{1}[a-zA-Z]{1}.*?)(")/g
-		this.jsRelLinkRegex = /(<script.*?src=")(\/{1}[a-zA-Z]{1}.*?)(")/g
-
 		this.inlineStylesRegex = /(<style.*>(.|\n)*?<\/style>)/g
 		
 		this.httpsRegex = [
@@ -48,8 +45,8 @@ class Scraper {
 			/(<img.+srcset=")(\/{1}[a-zA-Z]{1}.*)(,\s)/g,
 			/(<img.+srcset=".+(?:,\s)|\n)(\/{1}[a-zA-Z]{1}.*)(">)/g,
 			/(<a.*?href=")(\/.*?)(")/g,
-			/(<link.*?href=")(\/{1}[a-zA-Z]{1}.*?)(")/g,
-			/(<script.*?src=")(\/{1}[a-zA-Z]{1}.*?)(")/g
+			/(<link.*?href=")((?!http|https).*?)(")/g,
+			/(<script.*?src=")((?!http|https).*?)(")/g
 		]
 	}
 
