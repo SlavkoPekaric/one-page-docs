@@ -75,7 +75,7 @@ class Scraper {
 	 * Get links to doc pages
 	 * @return {object}
 	 */
-	async getLinks(linkIteratorFn) {
+	async getLinks() {
 		console.log('- Scraping links...'.green)
 		
 		return new Promise((resolve, reject) => {
