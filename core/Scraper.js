@@ -8,6 +8,7 @@ const cheerio = require('cheerio')
 const async = require('async')
 const _ = require('lodash')
 const open = require('open')
+const colors = require('colors')
 
 /**
  * JavaScript base class for scraping documentation pages
@@ -74,7 +75,7 @@ class Scraper {
 	 * @return {object}
 	 */
 	async getLinks(linkIteratorFn) {
-		console.log('- Scraping links...')
+		console.log('- Scraping links...'.green)
 		
 		return new Promise((resolve, reject) => {
 			let links = []
@@ -104,7 +105,7 @@ class Scraper {
 	 * @return {string}
 	 */
 	async getPageContent(url) {
-		console.log('- Scraping page:', url)
+		console.log(`- Scraping page: ${url}`.green)
 
 		return new Promise((resolve, reject) => {
 			this.scraper(this.baseUrl+url).then($ => {
@@ -123,6 +124,7 @@ class Scraper {
 
 				resolve(html)
 			}).catch(err => {
+				console.log(err)
 			  reject(err)
 			})
 		})
@@ -134,7 +136,7 @@ class Scraper {
 	 * @return {string}
 	 */
 	async getAllContent(links) {
-		console.log('- Scraping content...')
+		console.log('- Scraping content...'.green)
 
 		const getContentWrapper = () => {
 			const matchRegex = (input, regex) => {
@@ -190,7 +192,7 @@ class Scraper {
 	 * @return {string}
 	 */
 	async getBasePage() {
-		console.log('- Scraping base page...')
+		console.log('- Scraping base page...'.green)
 		
 		return new Promise((resolve, reject) => {
 			
@@ -214,7 +216,7 @@ class Scraper {
 	 * @return {string}
 	 */
 	getStyles(pageHtml) {
-		console.log('- Fetching styles...')
+		console.log('- Fetching styles...'.green)
 
 		let styles = ''
 		
@@ -239,7 +241,7 @@ class Scraper {
 	 * @return {string}
 	 */
 	getScripts(pageHtml) {
-		console.log('- Fetching scripts...')
+		console.log('- Fetching scripts...'.green)
 
 		let scripts = ''
 		
@@ -287,7 +289,7 @@ class Scraper {
 	 * @param {string} filename - output filename
 	 */
 	async writeHtmlFile(html, styles, scripts, title, filename = 'index.html') {
-		console.log('- Writing HTML file to:', filename)
+		console.log(`- Writing HTML file to: ${filename}`.green)
 
 		// output HTML page string
 		const formatHtml = input => {
@@ -329,8 +331,8 @@ class Scraper {
 			// open file in browser after successful compile
 			if (this.openAfterCompile) open(destinationFile);
 		} catch(e) {
-			console.log('An error occured...')
-			console.log(e)
+			console.log('An error occured...'.red)
+			console.log(e.red)
 		}
 	}
 
