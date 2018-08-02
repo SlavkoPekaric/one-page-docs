@@ -85,7 +85,13 @@ class Scraper {
 			
 			this.scraper(this.baseUrl+this.basePage).then($ => {
 				this.linkIteratorFn($, links)
-				resolve(links)
+
+				if (links && links.length) {
+					resolve(links)
+				} else {
+					reject('No links found on base page.')
+				}
+
 			}).catch(err => {
 			  reject(err)
 			})
@@ -110,7 +116,7 @@ class Scraper {
 					// let the function assign the html
 					html = this.contentSelector($)
 				}
-				
+
 				// correct sources
 				html = this.handleHttpsSources(html)
 				html = this.handleRelLinks(html)
@@ -324,7 +330,7 @@ class Scraper {
 			if (this.openAfterCompile) open(destinationFile);
 		} catch(e) {
 			console.log('An error occured...')
-			console.log(e.message)
+			console.log(e)
 		}
 	}
 
