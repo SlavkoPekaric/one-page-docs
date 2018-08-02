@@ -12,6 +12,10 @@ React JS
 
     $ node reactjs
 
+Redux JS
+
+    $ node reduxjs
+
 Vue JS
 
     $ node vuejs
