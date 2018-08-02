@@ -23,6 +23,7 @@ class Scraper {
 		this.contentSelector = settings.contentSelector
 		this.addonCss = settings.addonCss
 		this.linkIteratorFn = settings.linkIteratorFn
+		this.links = settings.links || []
 		this.outputFile = settings.outputFile
 		this.openAfterCompile = settings.openAfterCompile
 
@@ -78,6 +79,9 @@ class Scraper {
 		console.log('- Scraping links...'.green)
 		
 		return new Promise((resolve, reject) => {
+			// return passed links if given
+			if (this.links.length) { resolve(this.links) }
+
 			let links = []
 
 			if (this.includeBasePage === true) {
