@@ -169,7 +169,7 @@ class Scraper {
 		return new Promise((resolve, reject) => {
 			const data = []
 
-			// limiting amount of parallel requests to 5 for optimal performance
+			// limiting amount of parallel requests to 10 for optimal performance
 			async.eachLimit(links, 10, (link, callback) => {
 				this.getPageContent(link).then(result => {
 					data.push({
