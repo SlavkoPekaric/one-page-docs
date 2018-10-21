@@ -6,7 +6,7 @@ After compilation the HTML file will be displayed in the browser, and a PDF can 
 
 This project is under development and will be made into a globally installable NPM module in the future.
 
-## Currently Supported Libraries
+## Currently Supported Libraries/Languages
 
 React JS
 
@@ -27,7 +27,6 @@ Solidity
 Rust
 
     $ node rust-programming-language
-
-Rust Cookbook
-
     $ node rust-cookbook
+
+
