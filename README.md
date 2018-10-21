@@ -23,3 +23,7 @@ Vue JS
 Solidity
 
     $ node solidity
+
+Rust Cookbook
+
+    $ node rust-cookbook
