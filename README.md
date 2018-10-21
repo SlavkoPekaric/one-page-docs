@@ -24,6 +24,10 @@ Solidity
 
     $ node solidity
 
+Rust
+
+    $ node rust-programming-language
+
 Rust Cookbook
 
     $ node rust-cookbook
