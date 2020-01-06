@@ -20,6 +20,10 @@ Vue JS
 
     $ node vuejs
 
+Sequelize V5
+
+    $ node sequelize-v5
+
 Solidity
 
     $ node solidity
