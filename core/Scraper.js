@@ -35,6 +35,7 @@ class Scraper {
 		
 		this.cssLookupRegex = /(<link.*?href=".*?\.css".*>)/g
 		this.jsLookupRegex = /(<script.*?src=".*?\.js".*<\/script>)/g
+		this.linksLookupRegex = /(<link.*?href=".*?\.*>)/g
 		
 		this.inlineStylesRegex = /(<style.*>(.|\n)*?<\/style>)/g
 		
@@ -225,9 +226,11 @@ class Scraper {
 		let styles = ''
 		
 		// get linked styles
-		const cssLinks = pageHtml.match(this.cssLookupRegex) || []
-		styles += cssLinks.join('')
+		const allLinkItems = pageHtml.match(this.linksLookupRegex) || []
+		const cssLinks = allLinkItems.filter(item => item.indexOf('.css') > -1)
 		
+		styles += cssLinks.join('')
+
 		// get inline styles
 		const inlineStyles = pageHtml.match(this.inlineStylesRegex) || []
 
